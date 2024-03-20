@@ -6,7 +6,7 @@ const Controls = props => {
   const [sort, setSort] = useState(false);
 
   useEffect(()=>{
-        props.changesMade && props.changesMade(sort, filter);
+        props.changes && props.changes(sort, filter);
   },[sort, filter])
 
   function sortWords(eo) {
