@@ -1,0 +1,25 @@
+
+.filterRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 250px;
+}
+.filterButton {
+    background-color: red;
+    border:1px solid red;
+    font-weight: 600;
+    color:aliceblue;
+    border-radius: 5px;
+}
+.wordsBlock {
+    box-sizing: border-box;
+    height: 120px;
+    border-radius:5px;
+    margin: 10px 0 0 23px;
+   text-align: center;
+    width: 170px;
+    background-color: lightpink;
+    overflow-y: auto;
+    max-height: 120px;
+}
