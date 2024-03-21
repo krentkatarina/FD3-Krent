@@ -32,9 +32,7 @@ class ProductList extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const { newProduct } = this.state;
-    // Вызовите функцию для добавления нового товара с данными из newProduct
-    // Например: this.props.onAddProduct(newProduct);
-    // После добавления товара сбросьте значения нового товара и закройте форму
+
     this.setState({
       newProduct: {
         id: '',
