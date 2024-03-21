@@ -1,0 +1,33 @@
+table {
+    border: 1px solid lightgray;
+    border-collapse: collapse;
+    width: 350px;
+}
+th {
+    border: 1px solid lightgray;
+    padding:5px;
+    font-size: 20px;
+    background-color: lightgray;
+}
+td {
+    border: 1px solid lightgray;
+    padding:5px;
+    font-size: 18px;
+    text-align: center;
+}
+.product-list tr:hover {
+    background-color: #f2f2f2;
+}
+.product-list tr.selected {
+    background-color: yellow;
+}
+.product-list button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.product-list button:hover {
+    background-color: #d32f2f;
+}

@@ -8,7 +8,11 @@ class RainbowFrame extends React.Component {
             const color = this.props.colors[i];
             code = <div style= {{border: `solid 3px ${color}`}}>{code}</div>;
         }
-        return code;
+        return(
+            <div>
+                {code}
+            </div>
+        )
     }
 }
 
