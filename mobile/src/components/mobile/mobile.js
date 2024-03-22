@@ -73,7 +73,7 @@ class Mobile extends React.PureComponent  {
           filteredPersons = this.state.persons;
           break;
         }
-        case this.filter.active: {
+        case this.filter.activePersons: {
           filteredPersons = this.state.persons.filter(
             (person) => person.balance >= 0
           );
