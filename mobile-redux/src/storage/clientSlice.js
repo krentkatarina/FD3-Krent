@@ -1,54 +1,77 @@
 import { createSlice } from '@reduxjs/toolkit';
-const initialState = [
-  { id: 101, fam: "Иванов", im: "Иван", otch: "Иванович", balance: 200 },
-  { id: 105, fam: "Сидоров", im: "Сидор", otch: "Сидорович", balance: 250 },
-  { id: 110, fam: "Петров", im: "Пётр", otch: "Петрович", balance: -180 },
-  {
-    id: 120,
-    fam: "Григорьев",
-    im: "Григорий",
-    otch: "Григорьевич",
-    balance: 220,
-  },
-];
+const initialState = 
+ [ 
+    {
+      id: 1,
+      surname:"Крент",
+      name:"Катарина",
+      pathname:"Сергеевна",
+      balance: 100
+    }, 
+    {
+      id: 2,
+      surname:"Грицкевич",
+      name:"Наталья",
+      pathname:"Иосифовна",
+      balance: 200
+    }, 
+    {
+      id: 3,
+      surname:"Максимов",
+      name:"Юрий", 
+      pathname:"Владимирович", 
+      balance: 300
+    },
+    {
+      id: 4,
+      surname:"Кучура",
+      name:"Максим", 
+      pathname:"Владимирович",
+      balance: -1000
+    },
+    {
+      id: 5,
+      surname:"Мохарт",
+      name:"Владислав", 
+      pathname:"Дмитриевич",
+      balance: -5000
+    }
+  
+  ];
 
-export const clientsSlice = createSlice({
-  name: "clients",
-  initialState,
-  reducers: {
-    saveClient: (state, action) => {
-      state.forEach((client) => {
-        if (client.id == action.payload.id) {
-          client.fam = action.payload.fam;
-          client.im = action.payload.im;
-          client.otch = action.payload.otch;
-          client.balance = action.payload.balance;
+  export const clientsSlice = createSlice({
+    name: "persons",
+    initialState,
+    reducers: {
+        savePerson: (state, action) => {
+        state.forEach((person) => {
+          if (person.id === action.payload.id) {
+            person.surname = action.payload.surname;
+            person.name = action.payload.name;
+            person.pathname = action.payload.pathname;
+            person.balance = action.payload.balance;
+          }
+        });
+      },
+      addPerson: (state) => {
+        const max = state.reduce((maxId, person) => Math.max(maxId, person.id), 0);
+        state.push({
+          id: max + 1,
+          surname: "",
+          name: "",
+          pathname: "",
+          balance: 0,
+        });
+      },
+      deletePerson: (state, action) => {
+        const index = state.findIndex((person) => person.id === action.payload);
+        if (index !== -1) {
+          state.splice(index, 1);
         }
-      });
+      },
     },
-    addClient: (state, action) => {
-      let max = 0;
-      state.forEach((cl) => {
-        if (cl.id > max) max = cl.id;
-      });
-      const newClient = {
-        id: max + 1,
-        fam: "",
-        im: "",
-        otch: "",
-        balance: 0,
-      };
-      state.push(newClient);
-    },
-    deleteClient: (state, action) => {
-      let ind = 0;
-      state.forEach((cl, i) => {
-        if (cl.id == action.payload) ind = i;
-      });
-      state.splice(ind, 1);
-    },
-  },
-});
-export const { saveClient, addClient, deleteClient } = clientsSlice.actions;
-
-export default clientsSlice.reducer;
+  });
+  
+  export const { savePerson, addPerson, deletePerson } = clientsSlice.actions;
+  
+  export default clientsSlice.reducer;

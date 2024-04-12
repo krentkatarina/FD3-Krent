@@ -1,4 +1,3 @@
-import { EventEmitter } from "events";
-
-let clientEvents = new EventEmitter();
-export { clientEvents };
+import {EventEmitter} from 'events';
+let personsEvents = new EventEmitter();
+export {personsEvents};
