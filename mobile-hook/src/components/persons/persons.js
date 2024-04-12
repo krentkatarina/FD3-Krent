@@ -1,8 +1,8 @@
-import React, { useRef, useState  } from "react";
+import React, { memo, useRef, useState } from "react";
 import { personsEvents } from "../events";
 import './persons.css';
 
-const Person = ({ person }) => {
+const Person = memo(({ person }) => {
     const personsState = {
       show: 1,
       edit: 2,
@@ -40,7 +40,7 @@ const Person = ({ person }) => {
     const deletePerson = () => {
       personsEvents.emit("delete", person.id);
     };
-    console.log(`Рендер клиента с id: ${this.props.person.id}`);
+    console.log("Рендер клиента:", person.id);
     return (
       
       <tr>
@@ -125,6 +125,6 @@ const Person = ({ person }) => {
         </td>
       </tr>
     );
-  };
+  });
   
   export default Person;

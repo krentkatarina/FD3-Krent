@@ -74,7 +74,7 @@ const Mobile = ({ persons }) => {
   ));
 
   
-  console.log("Mobile");
+
   return (
     <div>
       <div>
