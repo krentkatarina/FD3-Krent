@@ -26,9 +26,7 @@ const Person = ({ person }) => {
     };
   
     const cancel = () => {
-      // Отмена изменений в режиме редактирования
       setMode(personsState.show);
-      // Сброс значений полей в исходные значения
       surnameRef.current.value = person.surname;
       nameRef.current.value = person.name;
       pathnameRef.current.value = person.pathname;
@@ -36,15 +34,15 @@ const Person = ({ person }) => {
     };
   
     const edit = () => {
-      // Переход в режим редактирования
       setMode(personsState.edit);
     };
   
     const deletePerson = () => {
       personsEvents.emit("delete", person.id);
     };
-  
+    console.log(`Рендер клиента с id: ${this.props.person.id}`);
     return (
+      
       <tr>
         <td>
           {mode === personsState.show ? (

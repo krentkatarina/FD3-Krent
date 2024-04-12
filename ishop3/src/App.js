@@ -1,12 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Shop from './components/shop/shop';
 
-class App extends Component {
-  render() {
-    return (
-      <Shop />
-    );
-  }
-}
+import productData from './components/data/products.json'
 
+function App() {
+return(
+  <Shop goods={productData}
+  />
+)
+  
+}
+  
 export default App;

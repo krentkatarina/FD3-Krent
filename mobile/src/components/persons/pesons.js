@@ -11,7 +11,13 @@ class Person extends React.PureComponent {
   };
 
   state = {
-    mode: !(this.props.person.surname && this.props.person.name && this.props.person.pathname && this.props.person.balance) ? this.personsState.edit : this.personsState.show 
+    mode: !(
+      this.props.person.surname 
+      && this.props.person.name 
+      && this.props.person.pathname
+       && this.props.person.balance
+      ) ? 
+      this.personsState.edit : this.personsState.show 
   }
 
 
@@ -53,9 +59,8 @@ class Person extends React.PureComponent {
   };
   
   
-  
   render() {
-    
+    console.log(`Рендер клиента с id: ${this.props.person.id}`);
     return (
       <tr>
         <td>

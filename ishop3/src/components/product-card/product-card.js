@@ -1,14 +1,16 @@
-import React, { Component } from 'react';
+import React from "react";
+import './product-card.css'
 
-class ProductCard extends Component {
+
+class ProductCard extends React.Component {
   render() {
-    const { product } = this.props;
     return (
-      <div className="product-card">
-        <h2>{product.name}</h2>
-        <p>Цена: {product.price}</p>
-        <p>Остаток: {product.stock}</p>
-        <img src={product.image} alt={product.name} />
+        <div className="card">
+            <div>{this.props.checkedItem.productName}</div>
+            <div>Цена: <span>{this.props.checkedItem.price}</span></div>
+            <div>Количество: <span >{this.props.checkedItem.quantity}</span></div>
+            <div>Изображение: <img src={this.props.checkedItem.picture} alt={this.props.checkedItem.productName} /></div>
+      
       </div>
     );
   }
